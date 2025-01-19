@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import { FiPhone, FiMapPin, FiMail, FiArrowDown } from "react-icons/fi";
 
@@ -86,9 +87,15 @@ const Office = () => {
         </h2>
 
         {/* Button */}
-        <button className="bg-[#23A6F0] text-[#FFFFFF] px-8 py-4 rounded-md m-4 hover:bg-blue-500">
+        {/* <button className="bg-[#23A6F0] text-[#FFFFFF] px-8 py-4 rounded-md m-4 hover:bg-blue-500">
           Try it free now
-        </button>
+        </button> */}
+        <Link
+          href="/team"
+          className="px-4 py-2 sm:px-6 sm:py-3 bg-[#2d6ac0] text-white font-bold rounded hover:bg-blue-700 transition-all"
+        >
+          Try it free now
+        </Link>
       </div>
     </div>
   );

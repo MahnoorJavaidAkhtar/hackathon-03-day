@@ -1,4 +1,5 @@
-"use client"
+
+"use client";
 import { useEffect, useState } from "react";
 import sanityClient from "@sanity/client";
 import Image from "next/image";
@@ -50,18 +51,21 @@ const BestSeller: React.FC = () => {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mt-6 w-full">
         {products.map((product) => (
-          <div key={product._id} className="flex flex-col items-center">
-            <div className="w-full">
-            <div className="w-[283px] h-[283px] overflow-hidden"> {/* Fixed dimensions container */}
-  <Image
-    src={urlFor(product.image).url()}
-    alt={product.productName}
-    width={283}
-    height={283}
-    className="w-full h-full object-cover" 
-  />
-</div>
-
+          <div
+            key={product._id}
+            className="relative flex flex-col items-center transition transform hover:scale-105 hover:shadow-lg bg-white rounded-lg p-4"
+          >
+            <div className="relative w-[283px] h-[283px] overflow-hidden rounded-lg">
+              <Image
+                src={urlFor(product.image).url()}
+                alt={product.productName}
+                width={283}
+                height={283}
+                className="w-full h-full object-cover"
+              />
+              {/* Overlay */}
+              <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 hover:opacity-100 transition flex items-center justify-center">
+              </div>
             </div>
             <h3 className="text-[#252B42] text-[18px] font-bold mt-4">
               {product.productName}
@@ -82,4 +86,5 @@ const BestSeller: React.FC = () => {
 };
 
 export default BestSeller;
+
 
